@@ -1,6 +1,12 @@
-body {
-    background-color: rgb(70, 70, 70);
-  }
+body{
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(70, 70, 70);
+}
   
   .navbar {
     background-color: rgba(20, 20, 20, 0.788);
@@ -15,15 +21,6 @@ body {
   
   .container {
     margin-top: 4em;
-  }
-  
-  .birthday {
-    font-size: 3em;
-    text-align: center;
-    font-family: "Kanit", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-  
   }
   
   .pic {
@@ -56,31 +53,3 @@ body {
   }
   
   
-  .css-button-3d--sky {
-    min-width: 130px;
-    height: 40px;
-    color: #fff;
-    padding: 5px 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    outline: none;
-    border-radius: 10px;
-    border: none;
-    background: #536179;
-    box-shadow: 0 5px #161a1f;
-  }
-  
-  .css-button-3d--sky:hover {
-    box-shadow: 0 3px #9dabc2;
-    border: solid 2px #9dabc2;
-    color: ##9dabc2;
-  }
-  
-  .css-button-3d--sky:active {
-    box-shadow: 0 0 #000000;
-    border: solid 2px #2b6cd4;
-    top: 5px;
-  }
