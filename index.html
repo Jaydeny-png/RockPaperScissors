@@ -13,36 +13,41 @@
 
 <body>
   <header>
-    <!-- place navbar here -->
-    <nav class="navbar navbar-light justify-content-center">
-      <a class="navbar-brand text-light" href="#">Rock, Paper, Scissors!</a>
-    </nav>
+    <b><h1>Rock - Paper - Scissors</h1></b>
   </header>
 
 
 
 
+  <main class="m-2">
+  <div id="" class="container">
+
+    
+
+  <div class="choices">
+    <button onclick="playGame('rock')">👊</button>
+    <button onclick="playGame('paper')">✋</button>
+    <button onclick="playGame('scissors')">✌</button>
+  </div>
+
+  <div id="playerDisplay">PLAYER: </div>
+  <div id="computerDisplay">COMPUTER: </div>
+  <div id="resultDisplay"></div>
 
 
 
-<h1>Rock - Paper - Scissors</h1>
-<div class="choices">
-  <button onclick="playGame('rock')">Rock</button>
-  <button onclick="playGame('paper')">Paper</button>
-  <button onclick="playGame('scissors')">scissors</button>
+
+
+  <div class="scoreDisplay">Player Score:
+    <span id="playerScoreDisplay">0</span>
+  </div>
+
+  <div class="scoreDisplay">Computer Score:
+    <span id="computerScoreDisplay">0</span>
+  </div>
 </div>
+</main>
 
-<div id="playerDisplay">Player:</div>
-<div id="computerDisplay">Computer:</div>
-<div id="resultDisplay">It's a Tie!:</div>
-
-<div class="scoreDisplay">Player Score: 
-  <span id="playerScoreDisplay">0</span>
-</div>
-
-<div class="scoreDisplay">Computer Score: 
-  <span id="computerScoreDisplay">0</span>
-</div>
 
 
 
@@ -52,6 +57,8 @@
       <section class="mb-4">
         <a class="btn text-white btn-floating m-1" style="background-color: #333333;"
           href="https://github.com/Jaydeny-png" role="button"><i class="fab fa-github"></i></a>
+        <a class="btn text-white btn-floating m-1" style="background-color: #333333;"
+          href="https://jaydeny-png.github.io/Gallery-1/" role="button"><i class="fab fa-github"></i></a>
       </section>
     </div>
     <div class="text-center p" style="background-color: rgba(0, 0, 0, 0.2);">
@@ -70,5 +77,4 @@
           </script>
         <script src="script.js"></script>
 </body>
-
 </html>
