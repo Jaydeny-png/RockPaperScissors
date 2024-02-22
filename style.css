@@ -1,19 +1,27 @@
 body{
     font-family: Arial, sans-serif;
     font-weight: bold;
-    display: flex;
+    display flex
     flex-direction: column;
     align-items: center;
     padding: 0 0;
-    align-items: center;
     text-align: center;
+    background-image: url("rps.jpg");
+    background-blend-mode: overlay;
+    background-color: #d3d3d3;
+    background-attachment: fixed;
 }
-
-  
 
 h1{
     font-size: 3.5rem;
     color: hsl(0, 0%, 1%);
+}
+
+#TBone {
+    background-color: #d3d3d3; 
+    padding: 200px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px black; 
 }
 
 .choices{
@@ -53,12 +61,4 @@ h1{
 
 .redText, #computerScoreDisplay{
     color: hsl(0, 84%, 60%);
-}
-
-
-.container {
-    background-color: #fafdfd; 
-    padding: 200px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px black; 
 }

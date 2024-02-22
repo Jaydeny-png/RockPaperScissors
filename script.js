@@ -48,3 +48,13 @@ function playGame(playerChoice){
             break;
     }
 }
+
+
+
+
+
+
+let Username = prompt('Enter a Username:')
+let story = `${Username}`
+let madLibOutputDiv = document.getElementById('madLibOutput')
+madLibOutputDiv.innerHTML = `<p>${story}</p>`
