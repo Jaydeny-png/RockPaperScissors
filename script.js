@@ -29,7 +29,7 @@ function playGame(playerChoice){
         }
     }
 
-    playerDisplay.textContent = `PLAYER: ${playerChoice}`;
+    playerDisplay.textContent = `${Username}: ${playerChoice}`;
     computerDisplay.textContent = `Computer: ${computerChoice}`;
     resultDisplay.textContent = result;
 
@@ -48,9 +48,6 @@ function playGame(playerChoice){
             break;
     }
 }
-
-
-
 
 
 

@@ -19,13 +19,13 @@ h1{
 
 #TBone {
     background-color: #d3d3d3; 
-    padding: 200px;
+    padding: 50px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px black; 
 }
 
 .choices{
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .choices button{
@@ -47,8 +47,8 @@ h1{
 }
 
 #resultDisplay{
-    font-size: 5rem;
-    margin: 30px 0;
+    font-size: 4rem;
+    margin: 10px 0;
 }
 
 .scoreDisplay{
