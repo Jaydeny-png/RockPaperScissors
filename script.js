@@ -1,11 +1,12 @@
+let playerScore = 0;
+let computerScore = 0;
+
 const choices = ["rock", "paper", "scissors"];
 const playerDisplay = document.getElementById("playerDisplay");
 const computerDisplay = document.getElementById("computerDisplay");
 const resultDisplay = document.getElementById("resultDisplay");
 const playerScoreDisplay = document.getElementById("playerScoreDisplay");
 const computerScoreDisplay = document.getElementById("computerScoreDisplay");
-let playerScore = 0;
-let computerScore = 0;
 
 function playGame(playerChoice){
 
@@ -32,6 +33,7 @@ function playGame(playerChoice){
     playerDisplay.textContent = `${Username}: ${playerChoice}`;
     computerDisplay.textContent = `Computer: ${computerChoice}`;
     resultDisplay.textContent = result;
+    
 
     resultDisplay.classList.remove("greenText", "redText");
 
@@ -49,9 +51,16 @@ function playGame(playerChoice){
     }
 }
 
-
-
 let Username = prompt('Enter a Username:')
 let story = `${Username}`
 let madLibOutputDiv = document.getElementById('madLibOutput')
 madLibOutputDiv.innerHTML = `<p>${story}</p>`
+
+
+
+
+
+
+
+
+

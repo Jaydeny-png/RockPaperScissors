@@ -46,10 +46,19 @@
       <div class="scoreDisplay">Computer Score:
         <span id="computerScoreDisplay">0</span>
       </div>
+      <button id="resetBtn" class="resetBtn">Reset</button>
     </div>
   </main>
 
+  
 
+  <script>
+    // Add event listener to the button
+    document.getElementById("resetBtn").addEventListener("click", function() {
+      // Reload the page
+      location.reload();
+    });
+  </script>
 
 
 
