@@ -12,16 +12,14 @@ const computerScoreDisplay = document.getElementById("computerScoreDisplay");
 
 let roundsplayedElement = document.getElementById('roundsPlayed');
 
-
 function playGame(playerChoice){
-
     const computerChoice = choices[Math.floor(Math.random() * 3)];
     let result = "";
 
     if(playerChoice === computerChoice){
-        result = "IT'S A TIE!";
-    }
-    else{
+        // If it's a tie, simply return
+        result = "It's a tie!";
+    } else {
         switch(playerChoice){
             case "rock":
                 result = (computerChoice === "scissors") ? "YOU WIN!" : "YOU LOSE!";
@@ -35,13 +33,12 @@ function playGame(playerChoice){
         }
     }
 
-    playerDisplay.textContent = `${Username}: ${playerChoice}`;
+    playerDisplay.textContent = `Player: ${playerChoice}`;
     computerDisplay.textContent = `Computer: ${computerChoice}`;
     resultDisplay.textContent = result;
+
+    resultDisplay.classList.remove("greenText", "redText", "yellowText");
     
-
-    resultDisplay.classList.remove("greenText", "redText");
-
     switch(result){
         case "YOU WIN!":
             resultDisplay.classList.add("greenText");
@@ -53,50 +50,35 @@ function playGame(playerChoice){
             computerScore++;
             computerScoreDisplay.textContent = computerScore;
             break;
+        case "It's a tie!":
+            resultDisplay.classList.add("yellowText");
+            break;
     }
 
     roundsPlayed++;
+    roundsplayedElement.textContent = `Round ${roundsPlayed}`;
 
-    roundsplayedElement.textContent = `Round ${roundsPlayed}`
-
-    if (roundsPlayed === totalRounds) {
+    if (roundsPlayed === totalRounds || playerScore >= 5 || computerScore >= 5) {
         endGame();
     }
-   
 }
 
 function endGame() {
-    // Declare overall winner or loser
     let endMessage = '';
-    if (playerScore >= 5) {
-        endMessage = "Congrats! you won!!";
-    } else if (computerScore >= 5) {
-        endMessage = 'oof! U Lose!';
+    if (playerScore > computerScore) {
+        endMessage = "Congrats! You won!!";
+    } else if (playerScore < computerScore) {
+        endMessage = 'Oof! You Lose!';
     } else {
         endMessage = "It's a tie game! Try again!";
     }
 
-    // Display total rounds played
     roundsplayedElement.textContent = `Total Rounds Played: ${roundsPlayed}`;
-
-    // Display message
     resultDisplay.textContent = endMessage;
+    resultDisplay.classList.add("yellowText");
 }
 
-
-
-
-
-let Username = prompt('Enter a Username:')
-let story = `${Username}`
-let madLibOutputDiv = document.getElementById('madLibOutput')
-madLibOutputDiv.innerHTML = `<p>${story}</p>`
-
-
-
-
-
-
-
-
-
+let Username = prompt('Enter a Username:');
+let story = `${Username}`;
+let madLibOutputDiv = document.getElementById('madLibOutput');
+madLibOutputDiv.innerHTML = `<p>${story}</p>`;
