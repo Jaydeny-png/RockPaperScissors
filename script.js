@@ -12,6 +12,7 @@ const computerScoreDisplay = document.getElementById("computerScoreDisplay");
 
 let roundsplayedElement = document.getElementById('roundsPlayed');
 
+
 function playGame(playerChoice){
 
     const computerChoice = choices[Math.floor(Math.random() * 3)];
@@ -54,9 +55,14 @@ function playGame(playerChoice){
             break;
     }
 
+    roundsPlayed++;
+
+    roundsplayedElement.textContent = `Round ${roundsPlayed}`
+
     if (roundsPlayed === totalRounds) {
         endGame();
     }
+   
 }
 
 
@@ -66,13 +72,9 @@ function playGame(playerChoice){
 
 function endGame() {
 
-  // Hide the Buttons 
-  document.getElementById('choices').style.display = 'none';
 
-  // Display total rounds played
-  roundsplayedElement.textContent = `Total Rounds Played: ${roundsPlayed}`;
 
-  // Declare overall winner/loser
+  // Declare overall winner or loser
   let endMessage = '';
   if (playerScore > computerScore) {
       endMessage = "Congratulations, you won against the computer!";
@@ -82,6 +84,10 @@ function endGame() {
       endMessage = "It's a tie game! Try again if you want to win";
   }
 
+    // Display total rounds played
+    roundsplayedElement.textContent = `Total Rounds Played: ${roundsPlayed}`;
+
+    ${endMessage}
   // Display message
   outcomeElement.textContent = endMessage;
 }
