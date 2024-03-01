@@ -1,110 +1,84 @@
-body{
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 0;
-    text-align: center;
-    background-image: url("rps.jpg");
-    background-blend-mode: overlay;
-    background-color: #d3d3d3;
-    background-attachment: fixed;
+let playerScore = 0;
+let computerScore = 0;
+let roundsPlayed = 0;
+let totalRounds = 5;
+
+const choices = ["rock", "paper", "scissors"];
+const playerDisplay = document.getElementById("playerDisplay");
+const computerDisplay = document.getElementById("computerDisplay");
+const resultDisplay = document.getElementById("resultDisplay");
+const playerScoreDisplay = document.getElementById("playerScoreDisplay");
+const computerScoreDisplay = document.getElementById("computerScoreDisplay");
+
+let roundsplayedElement = document.getElementById('roundsPlayed');
+
+function playGame(playerChoice){
+    const computerChoice = choices[Math.floor(Math.random() * 3)];
+    let result = "";
+
+    if(playerChoice === computerChoice){
+        // If it's a tie, simply return
+        result = "It's a tie!";
+    } else {
+        switch(playerChoice){
+            case "rock":
+                result = (computerChoice === "scissors") ? "YOU WIN!" : "YOU LOSE!";
+                break;
+            case "paper":
+                result = (computerChoice === "rock") ? "YOU WIN!" : "YOU LOSE!";
+                break;
+            case "scissors":
+                result = (computerChoice === "paper") ? "YOU WIN!" : "YOU LOSE!";
+                break;
+        }
+    }
+
+    playerDisplay.textContent = `Player: ${playerChoice}`;
+    computerDisplay.textContent = `Computer: ${computerChoice}`;
+    resultDisplay.textContent = result;
+
+    resultDisplay.classList.remove("greenText", "redText", "yellowText");
+    
+    switch(result){
+        case "YOU WIN!":
+            resultDisplay.classList.add("greenText");
+            playerScore++;
+            playerScoreDisplay.textContent = playerScore;
+            break;
+        case "YOU LOSE!":
+            resultDisplay.classList.add("redText");
+            computerScore++;
+            computerScoreDisplay.textContent = computerScore;
+            break;
+        case "It's a tie!":
+            resultDisplay.classList.add("yellowText");
+            break;
+    }
+
+    roundsPlayed++;
+    roundsplayedElement.textContent = `Round ${roundsPlayed}`;
+
+    if (roundsPlayed === totalRounds || playerScore >= 5 || computerScore >= 5) {
+        endGame();
+    }
 }
 
-h1{
-    font-size: 3.5rem;
-    color: hsl(0, 0%, 1%);
+function endGame() {
+    let endMessage = '';
+    if (playerScore > computerScore) {
+        endMessage = "Congrats! You won!!";
+    } else if (playerScore < computerScore) {
+        endMessage = 'Oof! You Lose!';
+    } else {
+        endMessage = "It's a tie game! Try again!";
+    }
+
+    roundsplayedElement.textContent = `Total Rounds Played: ${roundsPlayed}`;
+    resultDisplay.textContent = endMessage;
+    resultDisplay.classList.add("yellowText");
 }
 
-#TBone {
-    background-color: #d3d3d3; 
-    padding: 50px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px black; 
-}
-
-.choices{
-    margin-bottom: 10px;
-}
-
-.choices button{
-    font-size: 7.5rem;
-    min-width: 160px;
-    margin: 0 10px;
-    border-radius: 250px;
-    background-color: hsl(200, 100%, 50%);
-    cursor: pointer;
-    transition: background-color 0.5s ease;
-}
-
-.choices button:hover{
-    background-color: hsl(200, 100%, 70%);
-}
-
-#playerDisplay, #computerDisplay{
-    font-size: 2.5rem;
-}
-
-#resultDisplay{
-    font-size: 4rem;
-    margin: 10px 0;
-}
-
-.scoreDisplay{
-    font-size: 2rem;
-}
-
-.greenText, #playerScoreDisplay{
-    color: hsl(130, 84%, 54%);
-}
-
-.redText, #computerScoreDisplay{
-    color: hsl(0, 84%, 60%);
-}
-
-.yellowText {
-    color: yellow;
-}
-
-.resetBtn {
-  background-color: #cfcfcf;
-  border: 1px solid #222222;
-  border-radius: 8px;
-  box-sizing: border-box;
-  color: #222222;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 20px;
-  margin: 0;
-  outline: none;
-  padding: 13px 23px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  touch-action: manipulation;
-  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
-  user-select: none;
-  -webkit-user-select: none;
-  width: auto;
-}
-
-.resetBtn:focus-visible {
-  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
-  transition: box-shadow .2s;
-}
-
-.resetBtn:active {
-  background-color: #F7F7F7;
-  border-color: #000000;
-  transform: scale(.96);
-}
-
-.resetBtn:disabled {
-  border-color: #979797;
-  color: #999999;
-  cursor: not-allowed;
-  opacity: 1;
-}
+let Username = prompt('Enter a Username:');
+let story = `${Username}`;
+let madLibOutputDiv = document.getElementById('madLibOutput');
+madLibOutputDiv.innerHTML = `<p>${story}</p>`;
