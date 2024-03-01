@@ -65,32 +65,24 @@ function playGame(playerChoice){
    
 }
 
-
-
-
-
-
 function endGame() {
-
-
-
-  // Declare overall winner or loser
-  let endMessage = '';
-  if (playerScore > computerScore) {
-      endMessage = "Congratulations, you won against the computer!";
-  } else if (playerScore < computerScore) {
-      endMessage = 'Not so lucky this time, the computer got the upper hand!';
-  } else {
-      endMessage = "It's a tie game! Try again if you want to win";
-  }
+    // Declare overall winner or loser
+    let endMessage = '';
+    if (playerScore >= 5) {
+        endMessage = "Congrats! you won!!";
+    } else if (computerScore >= 5) {
+        endMessage = 'oof! U Lose!';
+    } else {
+        endMessage = "It's a tie game! Try again!";
+    }
 
     // Display total rounds played
     roundsplayedElement.textContent = `Total Rounds Played: ${roundsPlayed}`;
 
-    ${endMessage}
-  // Display message
-  outcomeElement.textContent = endMessage;
+    // Display message
+    resultDisplay.textContent = endMessage;
 }
+
 
 
 
